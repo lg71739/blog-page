@@ -1,0 +1,824 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>主题标签 Tag Plugins | 微柚博客</title><noscript>开启JavaScript才能访问本站哦~</noscript><link rel="icon" href="/img/favicon.png"><!-- index.css--><link rel="stylesheet" href="/css/index.css?v=1.5.1"><!-- inject head--><link rel="stylesheet" href="https://cdn2.codesign.qq.com/icons/7pOrz0WXB5ZWJPX/latest/iconfont.css"><link rel="stylesheet" href="https://cdn.staticfile.org/node-snackbar/0.1.16/snackbar.min.css"><!-- aplayer--><!-- swiper--><link rel="stylesheet" href="https://cdn.staticfile.org/fancyapps-ui/5.0.33/fancybox/fancybox.min.css"><!-- Open Graph--><meta name="description" content="Solitude 主题 Plugin Tags 部分移植来自店长的 hexo-butterfly-tag-plugins-plus，转载请注明出处。使用方法和配置项基本相同   卡片 card标签语法配置参数样式预览演示源码123&#123;% card icon,color,title %&#125;content&#123;% endcard %&#125;   参数 含义    color">
+<meta property="og:type" content="article">
+<meta property="og:title" content="主题标签 Tag Plugins">
+<meta property="og:url" content="http://example.com/posts/e19cb4b7.html">
+<meta property="og:site_name" content="微柚博客">
+<meta property="og:description" content="Solitude 主题 Plugin Tags 部分移植来自店长的 hexo-butterfly-tag-plugins-plus，转载请注明出处。使用方法和配置项基本相同   卡片 card标签语法配置参数样式预览演示源码123&#123;% card icon,color,title %&#125;content&#123;% endcard %&#125;   参数 含义    color">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://bu.dusays.com/2024/01/24/65b11236a3dd2.png">
+<meta property="article:published_time" content="2023-11-06T07:37:00.000Z">
+<meta property="article:modified_time" content="2024-03-01T09:52:06.000Z">
+<meta property="article:author" content="李广妮">
+<meta property="article:tag" content="Solitude">
+<meta property="article:tag" content="精选">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://bu.dusays.com/2024/01/24/65b11236a3dd2.png"><!-- pwa--><script>(win => {
+        win.saveToLocal = {
+            set: function setWithExpiry(key, value, ttl) {
+                if (ttl === 0)
+                    return
+                const now = new Date()
+                const expiryDay = ttl * 86400000
+                const item = {
+                    value: value,
+                    expiry: now.getTime() + expiryDay,
+                }
+                localStorage.setItem(key, JSON.stringify(item))
+            },
+
+            get: function getWithExpiry(key) {
+                const itemStr = localStorage.getItem(key)
+
+                if (!itemStr) {
+                    return undefined
+                }
+                const item = JSON.parse(itemStr)
+                const now = new Date()
+
+                if (now.getTime() > item.expiry) {
+                    localStorage.removeItem(key)
+                    return undefined
+                }
+                return item.value
+            }
+        }
+
+        const DarkModeStatus = localStorage.getItem('theme')
+        if (DarkModeStatus !== null) {
+            if (DarkModeStatus === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark')
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light')
+            }
+        }
+
+        const asideStatus = saveToLocal.get('aside-status')
+        if (asideStatus !== undefined) {
+            if (asideStatus === 'hide') {
+                document.documentElement.classList.add('hide-aside')
+            } else {
+                document.documentElement.classList.remove('hide-aside')
+            }
+        }
+    }
+)(window)
+
+console.log(
+    "%c Program: Hexo %c Theme: Hexo-Theme-Solitude %c Version: v1.5.1",
+    "border-radius:5px 0 0 5px;padding: 5px 10px;color:white;background:#ff3842;margin:10px 0",
+    "padding: 5px 10px;color:white;background:#3e9f50;",
+    "border-radius:0 5px 5px 0;padding: 5px 10px;background:#0084ff;"
+);</script><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="/css/macblack.css"><!-- global head--><script>const GLOBAL_CONFIG = {
+    root: '/',
+    algolia: undefined,
+    localsearch: {"preload":false,"path":"/search.xml"},
+    runtime: '2023-04-20 00:00:00',
+    lazyload: {
+        enable: true,
+        error: '/img/error_load.png'
+    },
+    hightlight: {
+        enable: true,
+        limit: 300,
+        expand: true,
+        copy: true,
+    },
+    randomlinks: true,
+    lang: {
+        theme: {
+            dark: '已切换至深色模式',
+            light: '已切换至浅色模式',
+        },
+        copy: {
+            success: '复制成功',
+            error: '复制失败',
+        },
+        backtop: '返回顶部',
+        time: {
+            recent: '最近',
+            yesterday: '昨天',
+            berforeyesterday: '前天',
+            daybefore: '天前',
+            runtime: '天',
+        },
+        search: {
+            empty: '找不到你查询的内容：${query}',
+            hit: '找到 ${hits} 条结果，用时 ${time} 毫秒',
+            placeholder: '输入关键词快速查找',
+        },
+        chs: {
+            chs_to_cht: '繁體中文',
+            cht_to_chs: '简体中文',
+        }
+    },
+    aside: {
+        sayhello: {
+            morning: '一日之计在于晨',
+            noon: '吃饱了才有力气干活',
+            afternoon: '集中精力，攻克难关',
+            night: '不要太劳累了，早睡更健康',
+            goodnight: '睡个好觉，保证精力充沛',
+        },
+        sayhello2: ["🤖️ 数码科技爱好者","🔍 分享与热心帮助","🏠 智能家居小能手","🔨 设计开发一条龙","🤝 专修交互与设计","🏃 脚踏实地行动派","🧱 团队小组发动机","💢 壮汉人狠话不多","🎮 电竞游戏爱好者"],
+    },
+    covercolor: {
+        enable: false
+    },
+    comment: {
+        enable: false,
+        type: 'waline',
+        commentBarrage: false,
+        randomInfoStart: ["聪敏的","可爱的","美丽的"],
+        randomInfoEnd: ["白菜","小可爱","小仙女"],
+        twikoo: {
+            url: '',
+            accessToken: ''
+        },
+        waline: {
+            url: 'https://waline-netlify.netlify.app/.netlify/functions/comment',
+        }
+    },
+    lightbox: 'fancybox',
+    rightside: {
+        enable: false
+    },
+    ai: {
+        enable: false,
+        key: 'Qi7QIXLOrxLCyKBW0bie',
+        talk: '我是王卓Sco开发的摘要生成助理ScoGPT，ScoGPT在静态部署时进行摘要的撰写，并且在访客访问时通过ScoCorrection转译后的文本摘要实现工具。我在这里只负责已经生成的摘要显示，你无法与我直接沟通，但我可以回答一些预设的问题。',
+        randomPost: false,
+    },
+    music: {
+        enable: false,
+    },
+    translate: undefined,
+};</script><meta name="generator" content="Hexo 7.1.1"></head><body id="body"><!-- universe--><canvas id="universe"></canvas><!-- loading--><div id="loading-box" onclick="preloader.endLoading();" style="zoom:1"><div class="loading-bg"><img class="loading-img nolazyload" src="https://jihulab.com/byzh123/images/-/raw/images/pictures/2024/02/17_13_56_23_202402171356962.bmp" alt="loading image"></div></div><script>const preloader = {
+    endLoading: () => {
+        document.getElementById('loading-box').classList.add('loaded');
+    },
+    initLoading: () => {
+        document.getElementById('loading-box').classList.remove('loaded');
+    },
+    removePaceDone: () => {
+        document.getElementById('body').classList = 'pace-done';
+    }
+}
+window.addEventListener('load', () => {
+    preloader.endLoading();
+});
+window.addEventListener('pjax:send', () => {
+    preloader.initLoading();
+});
+document.addEventListener('pjax:complete', () => {
+    preloader.endLoading();
+});</script><!-- console--><div id="console"><div class="close-btn" onclick="sco.hideConsole()"><i class="scoicon sco-close-fill"></i></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments" onclick="sco.hideConsole()"><div class="card-content"><div class="author-content-item-tips">互动</div><div class="author-content-item-title">最新评论</div></div><div class="aside-list"></div></div></div><div class="console-card-group-right"><div class="console-card tags" onclick="sco.hideConsole()"><div class="card-content"><div class="author-content-item-tips">标签</div><div class="author-content-item-title">寻找感兴趣的领域</div></div><div class="card-tag-cloud"><a href="/tags/Docs/">Docs<sup>4</sup></a><a href="/tags/Solitude/">Solitude<sup>1</sup></a><a href="/tags/%E7%B2%BE%E9%80%89/">精选<sup>1</sup></a></div></div><div class="console-card history" onclick="sco.hideConsole()"><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" onclick="pjax.loadUrl('/archives/2024/03/')" href="javascript:void(0);"><span class="card-archive-list-date">2024/03</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span class="card-archive-list-count-unit">篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" onclick="pjax.loadUrl('/archives/2024/02/')" href="javascript:void(0);"><span class="card-archive-list-date">2024/02</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">4</span><span class="card-archive-list-count-unit">篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" onclick="pjax.loadUrl('/archives/2023/11/')" href="javascript:void(0);"><span class="card-archive-list-date">2023/11</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span class="card-archive-list-count-unit">篇</span></div></a></li></ul></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" onclick="sco.switchDarkMode()" title="昼夜切换" href="javascript:void(0);"><i class="scoicon sco-moon-clear-fill"></i></a></div><div class="console-btn-item" id="consoleHideAside"><a class="asideSwitch" onclick="sco.switchHideAside()" title="边栏显示控制" href="javascript:void(0);"><i class="scoicon sco-side-bar-fill"></i></a></div><div class="console-btn-item" id="consoleKeyboard" onclick="sco.switchKeyboard()"><a class="keyboardSwitch" title="键盘快捷键" href="javascript:void(0);"><i class="scoicon sco-keyboard-box-fill"></i></a></div></div><div class="console-mask" onclick="sco.hideConsole()"></div></div><!-- sidebar--><div id="sidebar" style="zoom: 1;"><div id="menu-mask" style="display: none;"></div><div id="sidebar-menus"><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" onclick="sco.switchDarkMode()" href="javascript:void(0);"><i class="scoicon sco-moon-clear-fill"></i><span>显示模式</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><span>首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>文库</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="scoicon  sco-folder-fill"></i><span>文章列表</span></a></li><li><a class="site-page child" href="/categories/"><i class="scoicon  sco-checkbox-multiple-blank-fill"></i><span>全部分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="scoicon  sco-price-tag-fill"></i><span>全部标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>友链</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/moments/"><i class="scoicon  sco-wifi-fill"></i><span>友链鱼塘</span></a></li><li><a class="site-page child" href="/links/"><i class="scoicon  sco-group-fill"></i><span>友情链接</span></a></li><li><a class="site-page child" href="javascript:travelling()"><i class="scoicon  sco-gift-fill"></i><span>宝藏博主</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>我的</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/gallery/"><i class="scoicon  sco-image-fill"></i><span>相册集</span></a></li><li><a class="site-page child" href="/equipment/"><i class="scoicon  sco-laptop-line"></i><span>装备</span></a></li><li><a class="site-page child" href="/tlink/"><i class="scoicon  sco-tools-fill"></i><span>工具箱</span></a></li><li><a class="site-page child" href="/music/"><i class="scoicon  sco-disc-fill"></i><span>音乐馆</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>关于</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="scoicon  sco-contacts-fill"></i><span>关于本站</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-widget card-tags card-archives card-webinfo card-allinfo"><div class="card-tag-cloud"><a href="/tags/Docs/">Docs<sup>4</sup></a><a href="/tags/Solitude/">Solitude<sup>1</sup></a><a href="/tags/%E7%B2%BE%E9%80%89/">精选<sup>1</sup></a></div></div></div></div><!-- keyboard--><div id="keyboard-tips"><div class="keyboardTitle">博客快捷键</div><div class="keyboardList"><div class="keyboardItem"><div class="keyGroup"><div class="key">Shift</div><div class="key">K</div></div><div class="keyContent"><div class="content">关闭快捷键功能</div></div></div><div class="keyboardItem"><div class="keyGroup"><div class="key">Shift</div><div class="key">A</div></div><div class="keyContent"><div class="content">打开中控台</div></div></div><div class="keyboardItem"><div class="keyGroup"><div class="key">Shift</div><div class="key">M</div></div><div class="keyContent"><div class="content">播放/暂停音乐</div></div></div><div class="keyboardItem"><div class="keyGroup"><div class="key">Shift</div><div class="key">L</div></div><div class="keyContent"><div class="content">打开友情链接</div></div></div></div></div><script>const keyboard_addKeyup = (e) => {
+    if (e.key === 'Shift') {
+        document.getElementById('keyboard-tips').classList.remove('show');
+    }
+}
+
+const keyboard_addKeydown = (e) => {
+    const keyboards = [{"name":"关闭快捷键功能","key":"K","func":"keyboard"},{"name":"打开中控台","key":"A","sco":"showConsole"},{"name":"播放/暂停音乐","key":"M","sco":"musicToggle"},{"name":"打开友情链接","key":"L","url":"/links/"}];
+    if (e.keyCode === 16) {
+        document.getElementById('keyboard-tips').classList.add('show');
+    }
+
+    for (let i = 0; i < keyboards.length; i++) {
+        if (keyboards[i].url) {
+            if (keyboards[i].url.startsWith('http')) {
+                if (e.key === keyboards[i].key) {
+                    window.open(keyboards[i].url);
+                }
+            } else {
+                if (e.key === keyboards[i].key) {
+                    pjax.loadUrl(keyboards[i].url);
+                }
+            }
+        } else if (keyboards[i].sco) {
+            if (e.key === keyboards[i].key) {
+                sco[keyboards[i].sco]();
+            }
+        } else if (keyboards[i].func) {
+            if (e.key === keyboards[i].key) {
+                window[keyboards[i].func]();
+            }
+        }
+    }
+}
+
+function openKeyboard() {
+
+    window.addEventListener('keyup', keyboard_addKeyup);
+
+    window.addEventListener('keydown', keyboard_addKeydown);
+}
+function closeKeyboard() {
+
+    window.removeEventListener('keyup', keyboard_addKeyup);
+
+    window.removeEventListener('keydown', keyboard_addKeydown);
+}
+
+var sco_keyboards = localStorage.getItem('keyboard') === 'true'
+if (sco_keyboards) {
+    openKeyboard();
+    document.getElementById('consoleKeyboard').classList.add('on');
+}</script><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav class="show" id="nav"><div id="nav-group"><div id="blog_name"><div class="back-home-button" tabindex="-1"><i class="back-home-button-icon scoicon sco-more-fill"></i><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://github.com/wleelw/hexo-theme-solitude"><img class="back-menu-item-icon" src="https://bu.dusays.com/2023/11/08/654af68b25bb8.jpg"><span class="back-menu-item-text">Solitude</span></a></div></div></div></div><a id="site-name" href="/" title="返回博客主页"><span class="title">微柚博客</span></a></div><div id="page-name-mask"><div id="page-name"><a id="page-name-text" onclick="sco.toTop()">主题标签 Tag Plugins</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><span>首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>文库</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="scoicon  sco-folder-fill"></i><span>文章列表</span></a></li><li><a class="site-page child" href="/categories/"><i class="scoicon  sco-checkbox-multiple-blank-fill"></i><span>全部分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="scoicon  sco-price-tag-fill"></i><span>全部标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>友链</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/moments/"><i class="scoicon  sco-wifi-fill"></i><span>友链鱼塘</span></a></li><li><a class="site-page child" href="/links/"><i class="scoicon  sco-group-fill"></i><span>友情链接</span></a></li><li><a class="site-page child" href="javascript:travelling()"><i class="scoicon  sco-gift-fill"></i><span>宝藏博主</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>我的</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/gallery/"><i class="scoicon  sco-image-fill"></i><span>相册集</span></a></li><li><a class="site-page child" href="/equipment/"><i class="scoicon  sco-laptop-line"></i><span>装备</span></a></li><li><a class="site-page child" href="/tlink/"><i class="scoicon  sco-tools-fill"></i><span>工具箱</span></a></li><li><a class="site-page child" href="/music/"><i class="scoicon  sco-disc-fill"></i><span>音乐馆</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>关于</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="scoicon  sco-contacts-fill"></i><span>关于本站</span></a></li></ul></div></div></div><div id="nav-left"></div><div id="nav-right"><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机一篇文章" href="javascript:void(0);"><i class="scoicon sco-signal-tower-fill"></i></a></div><div class="nav-button" id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" title="搜索"><i class="scoicon sco-search-line"></i></a></div><div class="nav-button" id="nav-console"><a class="console_switchbutton" onclick="sco.showConsole()" title="中控台" href="javascript:void(0);"><i class="scoicon sco-dashboard-fill"></i></a></div><div class="nav-button" id="nav-totop" onclick="sco.toTop()"><a class="totopbtn"><i class="scoicon sco-arrow-up-line"></i><span id="percent">0</span></a></div><div id="toggle-menu"><a class="site-page"><i class="scoicon sco-menu-line"></i></a></div></div></div></nav><div class="coverdiv" id="coverdiv"><img class="nolazyload" id="post-cover" src="https://bu.dusays.com/2024/01/24/65b11236a3dd2.png" alt="主题标签 Tag Plugins"></div><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original" title="该文章为原创文章，注意版权协议">原创</a><span class="post-meta-categories"><a class="post-meta-categories" href="/categories/我的项目/">我的项目</a></span><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Solitude/"><span class="tags-name tags-punctuation">Solitude</span></a><a class="post-meta__tags" href="/tags/%E7%B2%BE%E9%80%89/"><span class="tags-name tags-punctuation">精选</span></a></div></div></div></div><h1 class="post-title">主题标签 Tag Plugins</h1><div id="post-meta"><div class="meta-secondline"><span class="post-meta-date" title="meta_posted 2023-11-06 15:37:00"><i class="post-meta-icon scoicon sco-calendar-todo-fill"></i><time datetime="2023-11-06T07:37:00.000Z">2023-11-06T07:37:00.000Z</time></span><span class="post-meta-wordcount"><span class="post-meta-separator"></span></span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><div class="note  simple primary"><p><code>Solitude 主题</code> Plugin Tags 部分移植来自店长的 <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/hexo-butterfly-tag-plugins-plus">hexo-butterfly-tag-plugins-plus</a>，转载请注明出处。<br>使用方法和配置项基本相同</p>
+</div>
+
+<h2 id="卡片-card"><a href="#卡片-card" class="headerlink" title="卡片 card"></a>卡片 card</h2><div class="tabs" id="card"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#card-1">标签语法</button></li><li class="tab"><button type="button" data-href="#card-2">配置参数</button></li><li class="tab"><button type="button" data-href="#card-3">样式预览</button></li><li class="tab"><button type="button" data-href="#card-4">演示源码</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="card-1"><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% card icon,color,title %&#125;</span><br><span class="line">content</span><br><span class="line">&#123;% endcard %&#125;</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div><div class="tab-item-content" id="card-2"><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>color</td>
+<td>red,green,blue,yellow,purple,cyan</td>
+</tr>
+<tr>
+<td>icon</td>
+<td>图标, no-icon</td>
+</tr>
+<tr>
+<td>title</td>
+<td>标题</td>
+</tr>
+</tbody></table><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div><div class="tab-item-content" id="card-3"><div class="card card-green"><div class="card-title"><i class="scoicon no-icon"></i>title</div><p>lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, accusantium ad adipisci alias</p>
+</div>
+
+<div class="card card-green"><div class="card-title"><i class="scoicon sco-circle-check-solid"></i>title</div><p>lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, accusantium ad adipisci alias</p>
+</div>
+
+<div class="card card-red"><div class="card-title"><i class="scoicon sco-circle-exclamation-solid"></i>title</div><p>lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, accusantium ad adipisci alias</p>
+</div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div><div class="tab-item-content" id="card-4"><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#123;% card no-icon,green,title %&#125;</span><br><span class="line"></span><br><span class="line">lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, accusantium ad adipisci alias</span><br><span class="line"></span><br><span class="line">&#123;% endcard %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% card sco-circle-check-solid,green,title %&#125;</span><br><span class="line"></span><br><span class="line">lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, accusantium ad adipisci alias</span><br><span class="line"></span><br><span class="line">&#123;% endcard %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% card sco-circle-exclamation-solid,red,title %&#125;</span><br><span class="line"></span><br><span class="line">lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, accusantium ad adipisci alias</span><br><span class="line"></span><br><span class="line">&#123;% endcard %&#125;</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div></div></div>
+
+<h2 id="按钮-btn"><a href="#按钮-btn" class="headerlink" title="按钮 btn"></a>按钮 btn</h2><div class="tabs" id="btn"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#btn-1">标签语法</button></li><li class="tab"><button type="button" data-href="#btn-2">配置参数</button></li><li class="tab"><button type="button" data-href="#btn-3">样式预览</button></li><li class="tab"><button type="button" data-href="#btn-4">演示源码</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="btn-1"><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#123;% btn [url],[text],[icon],[color] [style] [layout] [position] [size] %&#125;</span><br><span class="line"></span><br><span class="line">[url] : 链接</span><br><span class="line">[text] : 按钮文字</span><br><span class="line">[icon] : [可选] 图标</span><br><span class="line">[color] : [可选] 按钮背景顔色(默认 style 时）</span><br><span class="line">按钮字体和边框顔色(outline 时)</span><br><span class="line">bg-default/bg-blue/bg-pink/bg-red/bg-purple/bg-orange/bg-green</span><br><span class="line">[style] : [可选] 按钮样式 默认实心</span><br><span class="line">outline/留空</span><br><span class="line">[layout] : [可选] 按钮佈局 默认为 line</span><br><span class="line">block/留空</span><br><span class="line">[position] : [可选] 按钮位置 前提是设置了 layout 为 block 默认为左边</span><br><span class="line">center/right/留空</span><br><span class="line">[size] : [可选] 按钮大小</span><br><span class="line">larger/留空</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div><div class="tab-item-content" id="btn-2"><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>url</td>
+<td>链接</td>
+</tr>
+<tr>
+<td>text</td>
+<td>按钮文字</td>
+</tr>
+<tr>
+<td>icon</td>
+<td>[可选] 图标</td>
+</tr>
+<tr>
+<td>color</td>
+<td>[可选] 按钮背景顔色(默认 style 时）按钮字体和边框顔色(outline 时)default&#x2F;blue&#x2F;pink&#x2F;red&#x2F;purple&#x2F;orange&#x2F;green</td>
+</tr>
+<tr>
+<td>layout</td>
+<td>[可选] 按钮佈局 默认为 line block&#x2F;留空</td>
+</tr>
+<tr>
+<td>position</td>
+<td>[可选] 按钮位置 前提是设置了 layout 为 block 默认为左边 center&#x2F;right&#x2F;留空</td>
+</tr>
+<tr>
+<td>size</td>
+<td>[可选] 按钮大小 larger&#x2F;留空</td>
+</tr>
+</tbody></table><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div><div class="tab-item-content" id="btn-3"><blockquote>
+<p>一组按钮</p>
+</blockquote>
+<p>This is my website, click the button <button class="btn-sco " onclick="location.href = 'https://blog.wzsco.top/'" 
+  title="Solitude"><span>Solitude</span></button><br>This is my website, click the button <button class="btn-sco " onclick="location.href = 'https://blog.wzsco.top/'" 
+  title="Solitude"><i class="scoicon sco-arrow-right-bold"></i><span>Solitude</span></button><br>This is my website, click the button <button class="btn-sco outline" onclick="location.href = 'https://blog.wzsco.top/'" 
+  title="Solitude"><span>Solitude</span></button><br>This is my website, click the button <button class="btn-sco outline" onclick="location.href = 'https://blog.wzsco.top/'" 
+  title="Solitude"><i class="scoicon sco-arrow-right-bold"></i><span>Solitude</span></button><br>This is my website, click the button <button class="btn-sco larger" onclick="location.href = 'https://blog.wzsco.top/'" 
+  title="Solitude"><i class="scoicon sco-arrow-right-bold"></i><span>Solitude</span></button></p>
+<blockquote>
+<p>调整位置或大小</p>
+</blockquote>
+<p><button class="btn-sco block" onclick="location.href = 'https://blog.wzsco.top/'" 
+  title="Solitude"><i class="scoicon sco-arrow-right-bold"></i><span>Solitude</span></button><br><button class="btn-sco block center larger" onclick="location.href = 'https://blog.wzsco.top/'" 
+  title="Solitude"><i class="scoicon sco-arrow-right-bold"></i><span>Solitude</span></button><br><button class="btn-sco block right larger" onclick="location.href = 'https://blog.wzsco.top/'" 
+  title="Solitude"><i class="scoicon sco-arrow-right-bold"></i><span>Solitude</span></button></p>
+<blockquote>
+<p>more than one button in center</p>
+</blockquote>
+<span>
+<button class="btn-sco larger" onclick="location.href = 'https://blog.wzsco.top/'" 
+  title="Solitude"><i class="scoicon sco-arrow-right-bold"></i><span>Solitude</span></button>
+<button class="btn-sco bg-blue larger" onclick="location.href = 'https://blog.wzsco.top/'" 
+  title="Solitude"><i class="scoicon sco-arrow-right-bold"></i><span>Solitude</span></button>
+<button class="btn-sco bg-pink larger" onclick="location.href = 'https://blog.wzsco.top/'" 
+  title="Solitude"><i class="scoicon sco-arrow-right-bold"></i><span>Solitude</span></button>
+<button class="btn-sco bg-red larger" onclick="location.href = 'https://blog.wzsco.top/'" 
+  title="Solitude"><i class="scoicon sco-arrow-right-bold"></i><span>Solitude</span></button>
+<button class="btn-sco bg-purple larger" onclick="location.href = 'https://blog.wzsco.top/'" 
+  title="Solitude"><i class="scoicon sco-arrow-right-bold"></i><span>Solitude</span></button>
+<button class="btn-sco bg-orange larger" onclick="location.href = 'https://blog.wzsco.top/'" 
+  title="Solitude"><i class="scoicon sco-arrow-right-bold"></i><span>Solitude</span></button>
+<button class="btn-sco bg-green larger" onclick="location.href = 'https://blog.wzsco.top/'" 
+  title="Solitude"><i class="scoicon sco-arrow-right-bold"></i><span>Solitude</span></button>
+</span>
+
+<blockquote>
+<p>居中按钮</p>
+</blockquote>
+<div class="btn-center">
+<button class="btn-sco outline larger" onclick="location.href = 'https://blog.wzsco.top/'" 
+  title="Solitude"><i class="scoicon sco-arrow-right-bold"></i><span>Solitude</span></button>
+<button class="btn-sco outline blue larger" onclick="location.href = 'https://blog.wzsco.top/'" 
+  title="Solitude"><i class="scoicon sco-arrow-right-bold"></i><span>Solitude</span></button>
+<button class="btn-sco outline pink larger" onclick="location.href = 'https://blog.wzsco.top/'" 
+  title="Solitude"><i class="scoicon sco-arrow-right-bold"></i><span>Solitude</span></button>
+<button class="btn-sco outline red larger" onclick="location.href = 'https://blog.wzsco.top/'" 
+  title="Solitude"><i class="scoicon sco-arrow-right-bold"></i><span>Solitude</span></button>
+<button class="btn-sco outline purple larger" onclick="location.href = 'https://blog.wzsco.top/'" 
+  title="Solitude"><i class="scoicon sco-arrow-right-bold"></i><span>Solitude</span></button>
+<button class="btn-sco outline orange larger" onclick="location.href = 'https://blog.wzsco.top/'" 
+  title="Solitude"><i class="scoicon sco-arrow-right-bold"></i><span>Solitude</span></button>
+<button class="btn-sco outline green larger" onclick="location.href = 'https://blog.wzsco.top/'" 
+  title="Solitude"><i class="scoicon sco-arrow-right-bold"></i><span>Solitude</span></button>
+</div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div><div class="tab-item-content" id="btn-4"><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="quote">&gt; 一组按钮</span></span><br><span class="line"></span><br><span class="line">This is my website, click the button &#123;% btn &#x27;https://blog.wzsco.top/&#x27;,Solitude %&#125;</span><br><span class="line">This is my website, click the button &#123;% btn &#x27;https://blog.wzsco.top/&#x27;,Solitude,scoicon sco-arrow-right-bold %&#125;</span><br><span class="line">This is my website, click the button &#123;% btn &#x27;https://blog.wzsco.top/&#x27;,Solitude,,outline %&#125;</span><br><span class="line">This is my website, click the button &#123;% btn &#x27;https://blog.wzsco.top/&#x27;,Solitude,scoicon sco-arrow-right-bold,outline %&#125;</span><br><span class="line">This is my website, click the button &#123;% btn &#x27;https://blog.wzsco.top/&#x27;,Solitude,scoicon sco-arrow-right-bold,larger %&#125;</span><br><span class="line"></span><br><span class="line"><span class="quote">&gt; 调整位置或大小</span></span><br><span class="line"></span><br><span class="line">&#123;% btn &#x27;https://blog.wzsco.top/&#x27;,Solitude,scoicon sco-arrow-right-bold,block %&#125;</span><br><span class="line">&#123;% btn &#x27;https://blog.wzsco.top/&#x27;,Solitude,scoicon sco-arrow-right-bold,block center larger %&#125;</span><br><span class="line">&#123;% btn &#x27;https://blog.wzsco.top/&#x27;,Solitude,scoicon sco-arrow-right-bold,block right outline larger %&#125;</span><br><span class="line"></span><br><span class="line"><span class="quote">&gt; more than one button in center</span></span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">span</span>&gt;</span></span></span><br><span class="line">&#123;% btn &#x27;https://blog.wzsco.top/&#x27;,Solitude,scoicon sco-arrow-right-bold,larger %&#125;</span><br><span class="line">&#123;% btn &#x27;https://blog.wzsco.top/&#x27;,Solitude,scoicon sco-arrow-right-bold,blue larger %&#125;</span><br><span class="line">&#123;% btn &#x27;https://blog.wzsco.top/&#x27;,Solitude,scoicon sco-arrow-right-bold,pink larger %&#125;</span><br><span class="line">&#123;% btn &#x27;https://blog.wzsco.top/&#x27;,Solitude,scoicon sco-arrow-right-bold,red larger %&#125;</span><br><span class="line">&#123;% btn &#x27;https://blog.wzsco.top/&#x27;,Solitude,scoicon sco-arrow-right-bold,purple larger %&#125;</span><br><span class="line">&#123;% btn &#x27;https://blog.wzsco.top/&#x27;,Solitude,scoicon sco-arrow-right-bold,orange larger %&#125;</span><br><span class="line">&#123;% btn &#x27;https://blog.wzsco.top/&#x27;,Solitude,scoicon sco-arrow-right-bold,green larger %&#125;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="quote">&gt; 居中按钮</span></span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;btn-center&quot;</span>&gt;</span></span></span><br><span class="line">&#123;% btn &#x27;https://blog.wzsco.top/&#x27;,Solitude,scoicon sco-arrow-right-bold,outline larger %&#125;</span><br><span class="line">&#123;% btn &#x27;https://blog.wzsco.top/&#x27;,Solitude,scoicon sco-arrow-right-bold,outline blue larger %&#125;</span><br><span class="line">&#123;% btn &#x27;https://blog.wzsco.top/&#x27;,Solitude,scoicon sco-arrow-right-bold,outline pink larger %&#125;</span><br><span class="line">&#123;% btn &#x27;https://blog.wzsco.top/&#x27;,Solitude,scoicon sco-arrow-right-bold,outline red larger %&#125;</span><br><span class="line">&#123;% btn &#x27;https://blog.wzsco.top/&#x27;,Solitude,scoicon sco-arrow-right-bold,outline purple larger %&#125;</span><br><span class="line">&#123;% btn &#x27;https://blog.wzsco.top/&#x27;,Solitude,scoicon sco-arrow-right-bold,outline orange larger %&#125;</span><br><span class="line">&#123;% btn &#x27;https://blog.wzsco.top/&#x27;,Solitude,scoicon sco-arrow-right-bold,outline green larger %&#125;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div></div></div>
+
+<h2 id="单张图片-image"><a href="#单张图片-image" class="headerlink" title="单张图片 image"></a>单张图片 image</h2><div class="tabs" id="image"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#image-1">标签语法</button></li><li class="tab"><button type="button" data-href="#image-2">配置参数</button></li><li class="tab"><button type="button" data-href="#image-3">样式预览</button></li><li class="tab"><button type="button" data-href="#image-4">演示源码</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="image-1"><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% image 链接, width=宽度（可选）, height=高度（可选）, alt=描述（可选）, bg=占位颜色（可选） %&#125;</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div><div class="tab-item-content" id="image-2"><ol>
+<li>图片宽度高度：width&#x3D;300px, height&#x3D;32px</li>
+<li>图片描述：alt&#x3D;图片描述</li>
+<li>占位背景色：bg&#x3D;#f2f2f2</li>
+</ol><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div><div class="tab-item-content" id="image-3"><blockquote>
+<p>添加描述</p>
+</blockquote>
+<div class="img-wrap"><div class="img-bg"><img class="img" data-lazy-src="https://bu.dusays.com/2023/06/01/6478937d7de6f.webp" alt="每天下课回宿舍的路，没有什么故事。"/></div><span class="image-caption">每天下课回宿舍的路，没有什么故事。</span></div>
+
+<blockquote>
+<p>指定宽度</p>
+</blockquote>
+<div class="img-wrap"><div class="img-bg"><img class="img" data-lazy-src="https://bu.dusays.com/2023/06/01/6478937d7de6f.webp" style="width:400px;"/></div></div>
+
+<blockquote>
+<p>设置占位背景色</p>
+</blockquote>
+<div class="img-wrap"><div class="img-bg" style="background:#1D0C04"><img class="img" data-lazy-src="https://bu.dusays.com/2023/06/01/6478937d7de6f.webp" alt="优化不同宽度浏览的观感" style="width:400px;"/></div><span class="image-caption">优化不同宽度浏览的观感</span></div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div><div class="tab-item-content" id="image-4"><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="quote">&gt; 添加描述</span></span><br><span class="line"></span><br><span class="line">&#123;% image https://bu.dusays.com/2023/06/01/6478937d7de6f.webp, alt=每天下课回宿舍的路，没有什么故事。 %&#125;</span><br><span class="line"></span><br><span class="line"><span class="quote">&gt; 指定宽度</span></span><br><span class="line"></span><br><span class="line">&#123;% image https://bu.dusays.com/2023/06/01/6478937d7de6f.webp, width=400px %&#125;</span><br><span class="line"></span><br><span class="line"><span class="quote">&gt; 设置占位背景色</span></span><br><span class="line"></span><br><span class="line">&#123;% image https://bu.dusays.com/2023/06/01/6478937d7de6f.webp, width=400px, bg=#1D0C04, alt=优化不同宽度浏览的观感 %&#125;</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div></div></div>
+
+<h2 id="行内图片-inlineimage"><a href="#行内图片-inlineimage" class="headerlink" title="行内图片 inlineimage"></a>行内图片 inlineimage</h2><div class="tabs" id="inlineimage"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#inlineimage-1">标签语法</button></li><li class="tab"><button type="button" data-href="#inlineimage-2">配置参数</button></li><li class="tab"><button type="button" data-href="#inlineimage-3">样式预览</button></li><li class="tab"><button type="button" data-href="#inlineimage-4">演示源码</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="inlineimage-1"><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% inlineimage 图片链接, height=高度（可选） %&#125;</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div><div class="tab-item-content" id="inlineimage-2"><ol>
+<li>高度：height&#x3D;20px</li>
+</ol><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div><div class="tab-item-content" id="inlineimage-3"><p>这是 <img class="inline-img" data-lazy-src="https://bu.dusays.com/2023/06/01/647895232e5d5.webp" /> 一段话。</p>
+<p>这又是 <img class="inline-img" data-lazy-src="https://bu.dusays.com/2022/05/19/6285328a83ca7.gif" style="height:40px"/> 一段话。</p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div><div class="tab-item-content" id="inlineimage-4"><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">这是 &#123;% inlineimage https://bu.dusays.com/2023/06/01/647895232e5d5.webp %&#125; 一段话。</span><br><span class="line"></span><br><span class="line">这又是 &#123;% inlineimage https://bu.dusays.com/2022/05/19/6285328a83ca7.gif, height=40px %&#125; 一段话。</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div></div></div>
+
+<h2 id="label-标签"><a href="#label-标签" class="headerlink" title="label 标签"></a>label 标签</h2><div class="tabs" id="label"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#label-1">标签语法</button></li><li class="tab"><button type="button" data-href="#label-2">配置参数</button></li><li class="tab"><button type="button" data-href="#label-3">样式预览</button></li><li class="tab"><button type="button" data-href="#label-4">演示源码</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="label-1"><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% label text color %&#125;</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div><div class="tab-item-content" id="label-2"><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>释义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>text</td>
+<td>文字</td>
+</tr>
+<tr>
+<td>color</td>
+<td>【可选】背景颜色，默认为 default，default&#x2F;blue&#x2F;pink&#x2F;red&#x2F;purple&#x2F;orange&#x2F;green</td>
+</tr>
+</tbody></table><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div><div class="tab-item-content" id="label-3"><p><label class="hl-label bg-red">text</label> </p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div><div class="tab-item-content" id="label-4"><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% label text red %&#125;</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div></div></div>
+
+<h2 id="单选列表-radio"><a href="#单选列表-radio" class="headerlink" title="单选列表 radio"></a>单选列表 radio</h2><div class="tabs" id="radio"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#radio-1">标签语法</button></li><li class="tab"><button type="button" data-href="#radio-2">配置参数</button></li><li class="tab"><button type="button" data-href="#radio-3">样式预览</button></li><li class="tab"><button type="button" data-href="#radio-4">演示源码</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="radio-1"><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% radio 样式参数（可选）, 文本（支持简单md） %&#125;</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div><div class="tab-item-content" id="radio-2"><ol>
+<li>颜色: red,yellow,green,cyan,blue,gray</li>
+<li>选中状态: checked</li>
+</ol><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div><div class="tab-item-content" id="radio-3"><div class='checkbox'><input type="radio" />
+            <p>纯文本测试</p>
+            </div>
+<div class='checkbox checked'><input type="radio" checked="checked"/>
+            <p>支持简单的 <a target="_blank" rel="noopener" href="https://guides.github.com/features/mastering-markdown/">markdown</a> 语法</p>
+            </div>
+<div class='checkbox red'><input type="radio" />
+            <p>支持自定义颜色</p>
+            </div>
+<div class='checkbox green'><input type="radio" />
+            <p>绿色</p>
+            </div>
+<div class='checkbox yellow'><input type="radio" />
+            <p>黄色</p>
+            </div>
+<div class='checkbox cyan'><input type="radio" />
+            <p>青色</p>
+            </div>
+<div class='checkbox blue'><input type="radio" />
+            <p>蓝色</p>
+            </div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div><div class="tab-item-content" id="radio-4"><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;% radio 纯文本测试 %&#125;</span><br><span class="line">&#123;% radio checked, 支持简单的 [<span class="string">markdown</span>](<span class="link">https://guides.github.com/features/mastering-markdown/</span>) 语法 %&#125;</span><br><span class="line">&#123;% radio red, 支持自定义颜色 %&#125;</span><br><span class="line">&#123;% radio green, 绿色 %&#125;</span><br><span class="line">&#123;% radio yellow, 黄色 %&#125;</span><br><span class="line">&#123;% radio cyan, 青色 %&#125;</span><br><span class="line">&#123;% radio blue, 蓝色 %&#125;</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div></div></div>
+
+<h2 id="直链音频-audio"><a href="#直链音频-audio" class="headerlink" title="直链音频 audio"></a>直链音频 audio</h2><div class="tabs" id="audio"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#audio-1">标签语法</button></li><li class="tab"><button type="button" data-href="#audio-2">样式预览</button></li><li class="tab"><button type="button" data-href="#audio-3">演示源码</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="audio-1"><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% audio 音频链接 %&#125;</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div><div class="tab-item-content" id="audio-2"><div class="audio"><audio controls preload><source src='音频链接' type='audio/mp3'>Your browser does not support the audio tag.</audio></div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div><div class="tab-item-content" id="audio-3"><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% audio 音频链接 %&#125;</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div></div></div>
+
+<h2 id="直链视频-video"><a href="#直链视频-video" class="headerlink" title="直链视频 video"></a>直链视频 video</h2><div class="tabs" id="video"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#video-1">标签语法</button></li><li class="tab"><button type="button" data-href="#video-2">配置参数</button></li><li class="tab"><button type="button" data-href="#video-3">样式预览</button></li><li class="tab"><button type="button" data-href="#video-4">演示源码</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="video-1"><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% video 视频链接 %&#125;</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div><div class="tab-item-content" id="video-2"><ol>
+<li>对其方向：left, center, right</li>
+<li>列数：逗号后面直接写列数，支持 1 ～ 4 列。</li>
+</ol><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div><div class="tab-item-content" id="video-3"><blockquote>
+<p>默认</p>
+</blockquote>
+<div class="video"><video controls preload><source src='视频链接' type='video/mp4'>Your browser does not support the video tag.</video></div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div><div class="tab-item-content" id="video-4"><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="quote">&gt; 默认</span></span><br><span class="line"></span><br><span class="line">&#123;% video 视频链接 %&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div></div></div>
+
+<h2 id="段落文本-p"><a href="#段落文本-p" class="headerlink" title="段落文本 p"></a>段落文本 p</h2><div class="tabs" id="p"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#p-1">标签语法</button></li><li class="tab"><button type="button" data-href="#p-2">配置参数</button></li><li class="tab"><button type="button" data-href="#p-3">样式预览</button></li><li class="tab"><button type="button" data-href="#p-4">演示源码</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="p-1"><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% p 样式参数(参数以空格划分), 文本内容 %&#125;</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div><div class="tab-item-content" id="p-2"><ol>
+<li>字体: logo, code</li>
+<li>颜色: <span class='p red'>red</span>,<span class='p yellow'>yellow</span>,<span class='p green'>green</span>,<span class='p cyan'>cyan</span>,<span class='p blue'>blue</span>,<span class='p gray'>gray</span></li>
+<li>大小: small, h4, h3, h2, h1, large, huge, ultra</li>
+<li>对齐方向: left, center, right</li>
+</ol><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div><div class="tab-item-content" id="p-3"><p class='p red left'>red left</p>
+
+<p class='p yellow center'>yellow center</p>
+
+<p class='p green right'>green right</p>
+
+<p class='p center h1'>center h1</p>
+
+<p class='p center ultra'>center ultra</p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div><div class="tab-item-content" id="p-4"><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&#123;% p red left, red left %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% p yellow center, yellow center %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% p green right, green right %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% p center h1, center h1 %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% p center ultra, center ultra %&#125;</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div></div></div>
+
+<h2 id="Note-Bootstrap-Callout"><a href="#Note-Bootstrap-Callout" class="headerlink" title="Note (Bootstrap Callout)"></a>Note (Bootstrap Callout)</h2><div class="tabs" id="note"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#note-1">标签语法</button></li><li class="tab"><button type="button" data-href="#note-2">配置参数</button></li><li class="tab"><button type="button" data-href="#note-3">样式预览</button></li><li class="tab"><button type="button" data-href="#note-4">演示源码</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="note-1"><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% note [class] %&#125;</span><br><span class="line">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, libero.</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div><div class="tab-item-content" id="note-2"><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>class</td>
+<td>显示值</td>
+</tr>
+</tbody></table>
+<p>显示值：（中间空格）</p>
+<ul>
+<li>配色<ul>
+<li>default &#x2F; primary &#x2F; success &#x2F; info &#x2F; warning &#x2F; danger</li>
+</ul>
+</li>
+<li>样式<ul>
+<li>simple &#x2F; modern &#x2F; flat &#x2F; disabled</li>
+</ul>
+</li>
+<li>图标<ul>
+<li>noicon</li>
+</ul>
+</li>
+</ul><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div><div class="tab-item-content" id="note-3"><blockquote>
+<p>默认样式</p>
+</blockquote>
+<div class="note  simple"><p>Demo 1 - default</p>
+</div>
+
+<blockquote>
+<p>Simple 样式</p>
+</blockquote>
+<div class="note  default simple"><p>Demo 1 - default</p>
+</div>
+
+<div class="note  primary simple"><p>Demo 2 - primary</p>
+</div>
+
+<div class="note  success simple"><p>Demo 3 - success</p>
+</div>
+
+<div class="note  info simple"><p>Demo 4 - info</p>
+</div>
+
+<div class="note  warning simple"><p>Demo 5 - warning</p>
+</div>
+
+<div class="note  danger simple"><p>Demo 6 - danger</p>
+</div>
+
+<blockquote>
+<p>Modern 样式</p>
+</blockquote>
+<div class="note  default modern"><p>Demo 1 - default</p>
+</div>
+
+<div class="note  primary modern"><p>Demo 2 - primary</p>
+</div>
+
+<div class="note  success modern"><p>Demo 3 - success</p>
+</div>
+
+<div class="note  info modern"><p>Demo 4 - info</p>
+</div>
+
+<div class="note  warning modern"><p>Demo 5 - warning</p>
+</div>
+
+<div class="note  danger modern"><p>Demo 6 - danger</p>
+</div>
+
+<blockquote>
+<p>Flat 样式</p>
+</blockquote>
+<div class="note  default flat"><p>Demo 1 - default</p>
+</div>
+
+<div class="note  primary flat"><p>Demo 2 - primary</p>
+</div>
+
+<div class="note  success flat"><p>Demo 3 - success</p>
+</div>
+
+<div class="note  info flat"><p>Demo 4 - info</p>
+</div>
+
+<div class="note  warning flat"><p>Demo 5 - warning</p>
+</div>
+
+<div class="note  danger flat"><p>Demo 6 - danger</p>
+</div>
+
+<blockquote>
+<p>Disabled 样式</p>
+</blockquote>
+<div class="note  default disabled"><p>Demo 1 - default</p>
+</div>
+
+<div class="note  primary disabled"><p>Demo 2 - primary</p>
+</div>
+
+<div class="note  success disabled"><p>Demo 3 - success</p>
+</div>
+
+<div class="note  info disabled"><p>Demo 4 - info</p>
+</div>
+
+<div class="note  warning disabled"><p>Demo 5 - warning</p>
+</div>
+
+<div class="note  danger disabled"><p>Demo 6 - danger</p>
+</div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div><div class="tab-item-content" id="note-4"><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br></pre></td><td class="code"><pre><span class="line">默认样式：</span><br><span class="line">&#123;% note default %&#125;</span><br><span class="line">Demo 1 - default</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line"><span class="bullet">1.</span> Simple 样式</span><br><span class="line">   &#123;% note default simple %&#125;</span><br><span class="line">   Demo 1 - default</span><br><span class="line">   &#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note primary simple %&#125;</span><br><span class="line">Demo 2 - primary</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note success simple %&#125;</span><br><span class="line">Demo 3 - success</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note info simple %&#125;</span><br><span class="line">Demo 4 - info</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note warning simple %&#125;</span><br><span class="line">Demo 5 - warning</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note danger simple %&#125;</span><br><span class="line">Demo 6 - danger</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line"><span class="bullet">2.</span> Modern 样式</span><br><span class="line">   &#123;% note default modern %&#125;</span><br><span class="line">   Demo 1 - default</span><br><span class="line">   &#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note primary modern %&#125;</span><br><span class="line">Demo 2 - primary</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note success modern %&#125;</span><br><span class="line">Demo 3 - success</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note info modern %&#125;</span><br><span class="line">Demo 4 - info</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note warning modern %&#125;</span><br><span class="line">Demo 5 - warning</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note danger modern %&#125;</span><br><span class="line">Demo 6 - danger</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line"><span class="bullet">3.</span> Flat 样式</span><br><span class="line">   &#123;% note default flat %&#125;</span><br><span class="line">   Demo 1 - default</span><br><span class="line">   &#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note primary flat %&#125;</span><br><span class="line">Demo 2 - primary</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note success flat %&#125;</span><br><span class="line">Demo 3 - success</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note info flat %&#125;</span><br><span class="line">Demo 4 - info</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note warning flat %&#125;</span><br><span class="line">Demo 5 - warning</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note danger flat %&#125;</span><br><span class="line">Demo 6 - danger</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line"><span class="bullet">3.</span> Disabled 样式</span><br><span class="line">   &#123;% note default disabled %&#125;</span><br><span class="line">   Demo 1 - default</span><br><span class="line">   &#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note primary disabled %&#125;</span><br><span class="line">Demo 2 - primary</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note success disabled %&#125;</span><br><span class="line">Demo 3 - success</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note info disabled %&#125;</span><br><span class="line">Demo 4 - info</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note warning disabled %&#125;</span><br><span class="line">Demo 5 - warning</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note danger disabled %&#125;</span><br><span class="line">Demo 6 - danger</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div></div></div>
+
+<h2 id="分栏-tabs"><a href="#分栏-tabs" class="headerlink" title="分栏 tabs"></a>分栏 tabs</h2><blockquote>
+<p>分栏支持内置codesign图标，如果开启了 customicon 则可以使用自定义的图标，否则只能使用默内置codesign图标</p>
+</blockquote>
+<div class="tabs" id="分栏"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#分栏-1">标签语法</button></li><li class="tab"><button type="button" data-href="#分栏-2">配置参数</button></li><li class="tab"><button type="button" data-href="#分栏-3">样式预览</button></li><li class="tab"><button type="button" data-href="#分栏-4">演示源码</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="分栏-1"><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;% tabs Unique name, [index] %&#125;</span><br><span class="line"></span><br><span class="line">&lt;!-- tab [Tab caption] [@icon] --&gt;</span><br><span class="line"></span><br><span class="line">Any content (support inline tags too).</span><br><span class="line"></span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line"></span><br><span class="line">&#123;% endtabs %&#125;</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div><div class="tab-item-content" id="分栏-2"><ol>
+<li><p>Unique name :</p>
+<ul>
+<li>选项卡块标签的唯一名称，不带逗号。</li>
+<li>将在#id 中用作每个标签及其索引号的前缀。</li>
+<li>如果名称中包含空格，则对于生成#id，所有空格将由破折号代替。</li>
+<li>仅当前帖子&#x2F;页面的 URL 必须是唯一的！</li>
+</ul>
+</li>
+<li><p>[Tab caption]:</p>
+<ul>
+<li>当前选项卡的标题。</li>
+<li>如果未指定标题，则带有制表符索引后缀的唯一名称将用作制表符的标题。</li>
+<li>如果未指定标题，但指定了图标，则标题将为空。</li>
+<li>可选参数。</li>
+</ul>
+</li>
+<li><p>[@icon]:</p>
+<ul>
+<li>FontAwesome 图标名称（全名，看起来像“ fas fa-font”）</li>
+<li>可以指定带空格或不带空格；</li>
+<li>例如’Tab caption @icon’ 和 ‘Tab caption@icon’.</li>
+<li>可选参数。</li>
+</ul>
+</li>
+</ol><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div><div class="tab-item-content" id="分栏-3"><div class="note  primary flat"><p>Demo 1 - 预设选择第一个【默认】</p>
+</div>
+
+<div class="tabs" id="demo1"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#demo1-1">test1</button></li><li class="tab"><button type="button" data-href="#demo1-2">test2</button></li><li class="tab"><button type="button" data-href="#demo1-3">test3</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="demo1-1"><p>This is Tab 1.</p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div><div class="tab-item-content" id="demo1-2"><p>This is Tab 2.</p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div><div class="tab-item-content" id="demo1-3"><p>This is Tab 3.</p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div></div></div>
+
+<div class="note  primary flat"><p>Demo 2 - 没有预设值</p>
+</div>
+
+<div class="tabs" id="demo2"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#demo2-1">Demo2 1</button></li><li class="tab"><button type="button" data-href="#demo2-2">Demo2 2</button></li><li class="tab"><button type="button" data-href="#demo2-3">Demo2 3</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="demo2-1"><p>This is Tab 1.</p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div><div class="tab-item-content" id="demo2-2"><p>This is Tab 2.</p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div><div class="tab-item-content" id="demo2-3"><p>This is Tab 3.</p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div></div></div>
+
+<div class="note  primary flat"><p>Demo 3 - 自定义Tab名 + icon + Tab名和icon</p>
+</div>
+
+<div class="tabs" id="demo3"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#demo3-1">test1</button></li><li class="tab"><button type="button" data-href="#demo3-2"><i  style="text-align: center;" class="tab scoicon sco-disc-fill"></i></button></li><li class="tab"><button type="button" data-href="#demo3-3"><i  class="tab scoicon sco-disc-fill"></i>音乐</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="demo3-1"><p>This is Tab 1.</p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div><div class="tab-item-content" id="demo3-2"><p>This is Tab 2.</p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div><div class="tab-item-content" id="demo3-3"><p>This is Tab 3.</p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div></div></div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div><div class="tab-item-content" id="分栏-4"><div class="note  primary flat"><p>Demo 1 - 预设选择第一个【默认】</p>
+</div>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&#123;% subtabs Demo1 %&#125;</span><br><span class="line">&lt;!-- tab test1 --&gt;</span><br><span class="line">This is Tab 1.</span><br><span class="line">&lt;!-- endtab--&gt;</span><br><span class="line">&lt;!-- tab test2 --&gt;</span><br><span class="line">This is Tab 2.</span><br><span class="line">&lt;!-- endtab--&gt;</span><br><span class="line">&lt;!-- tab test3 --&gt;</span><br><span class="line">This is Tab 3.</span><br><span class="line">&lt;!-- endtab--&gt;</span><br><span class="line">&#123;% endsubtabs %&#125;</span><br></pre></td></tr></table></figure>
+
+<div class="note  primary flat"><p>Demo 2 - 没有预设值</p>
+</div>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;% subtabs Demo2 %&#125;</span><br><span class="line">&lt;!-- tab --&gt;</span><br><span class="line">This is Tab 1.</span><br><span class="line">&lt;!-- endtab--&gt;</span><br><span class="line">&lt;!-- tab --&gt;</span><br><span class="line">This is Tab 2.</span><br><span class="line">&lt;!-- endtab--&gt;</span><br><span class="line">&lt;!-- tab --&gt;</span><br><span class="line">This is Tab 3.</span><br><span class="line">&lt;!-- endtab--&gt;</span><br><span class="line">&#123;% endsubtabs %&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<div class="note  primary flat"><p>Demo 3 - 自定义Tab名 + icon + Tab名和icon</p>
+</div>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;% subtabs Demo3 %&#125;</span><br><span class="line">&lt;!-- tab test1  --&gt;</span><br><span class="line">This is Tab 1.</span><br><span class="line">&lt;!-- endtab--&gt;</span><br><span class="line">&lt;!-- tab @sco-disc-fill --&gt;</span><br><span class="line">This is Tab 2.</span><br><span class="line">&lt;!-- endtab--&gt;</span><br><span class="line">&lt;!-- tab 音乐 @sco-disc-fill --&gt;</span><br><span class="line">This is Tab 3.</span><br><span class="line">&lt;!-- endtab--&gt;</span><br><span class="line">&#123;% endsubtabs %&#125;</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div></div></div>
+
+<h2 id="时间轴-Timelne"><a href="#时间轴-Timelne" class="headerlink" title="时间轴 Timelne"></a>时间轴 Timelne</h2><div class="tabs" id="时间轴"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#时间轴-1">标签语法</button></li><li class="tab"><button type="button" data-href="#时间轴-2">参数配置</button></li><li class="tab"><button type="button" data-href="#时间轴-3">样式预览</button></li><li class="tab"><button type="button" data-href="#时间轴-4">演示源码</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="时间轴-1"><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#123;% timeline title %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% timenode title %&#125;</span><br><span class="line"></span><br><span class="line">xxxx</span><br><span class="line"></span><br><span class="line">&#123;% endtimenode %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% timenode title %&#125;</span><br><span class="line"></span><br><span class="line">xxxx</span><br><span class="line"></span><br><span class="line">&#123;% endtimenode %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% endtimeline %&#125;</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div><div class="tab-item-content" id="时间轴-2"><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>title</td>
+<td>节点名称</td>
+</tr>
+<tr>
+<td>xxxx</td>
+<td>内容区</td>
+</tr>
+</tbody></table><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div><div class="tab-item-content" id="时间轴-3"><div class="timeline">
+<div class="timenode"><div class="meta"><p>8</p></div><div class="body"><ul><li>你好</li><li>你好</li></ul><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio dolores eaque est ex voluptatum. Consequuntur<br>eligendi esse fugit quasi ut.</p></div></div>
+
+<div class="timenode"><div class="meta"><p>9</p></div><div class="body"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad amet animi assumenda atque consequatur, doloribus eligendi<br>est excepturi facere molestias nam, omnis perspiciatis quas, repellendus sit. Ipsum, rem, velit?</p></div></div>
+</div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div><div class="tab-item-content" id="时间轴-4"><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#123;% timeline %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% timenode 8 %&#125;</span><br><span class="line"></span><br><span class="line">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio dolores eaque est ex voluptatum. Consequuntur</span><br><span class="line">eligendi esse fugit quasi ut.</span><br><span class="line"></span><br><span class="line">&#123;% endtimenode %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% timenode 9 %&#125;</span><br><span class="line"></span><br><span class="line">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad amet animi assumenda atque consequatur, doloribus eligendi</span><br><span class="line">est excepturi facere molestias nam, omnis perspiciatis quas, repellendus sit. Ipsum, rem, velit?</span><br><span class="line"></span><br><span class="line">&#123;% endtimenode %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% endtimeline %&#125;</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div></div></div>
+
+<h2 id="外链-link"><a href="#外链-link" class="headerlink" title="外链 link"></a>外链 link</h2><div class="tabs" id="外链"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#外链-1">标签语法</button></li><li class="tab"><button type="button" data-href="#外链-2">参数配置</button></li><li class="tab"><button type="button" data-href="#外链-3">样式预览</button></li><li class="tab"><button type="button" data-href="#外链-4">演示源码</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="外链-1"><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% link [title] [subtitle] [link] %&#125;</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div><div class="tab-item-content" id="外链-2"><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>title</td>
+<td>标题</td>
+</tr>
+<tr>
+<td>subtitle</td>
+<td>简介</td>
+</tr>
+<tr>
+<td>link</td>
+<td>跳转链接</td>
+</tr>
+</tbody></table><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div><div class="tab-item-content" id="外链-3"><a class="tag-Link" target="_blank" href="https://docs.wzsco.top/">
+    <div class="tag-link-tips">引用站外地址</div>
+    <div class="tag-link-bottom">
+        <div class="tag-link-left" style="background-image: url(https://api.iowen.cn/favicon/docs.wzsco.top/.png);"></div>
+        <div class="tag-link-right">
+            <div class="tag-link-title">Solitude</div>
+            <div class="tag-link-sitename">官方文档地址</div>
+        </div>
+        <i class="fa-solid fa-angle-right"></i>
+    </div>
+    </a>
+
+<a class="tag-Link" target="_blank" href="https://www.zhihu.com/">
+    <div class="tag-link-tips">引用站外地址</div>
+    <div class="tag-link-bottom">
+        <div class="tag-link-left" style="background-image: url(https://api.iowen.cn/favicon/www.zhihu.com/.png);"></div>
+        <div class="tag-link-right">
+            <div class="tag-link-title">知乎</div>
+            <div class="tag-link-sitename">有问题，就会有答案</div>
+        </div>
+        <i class="fa-solid fa-angle-right"></i>
+    </div>
+    </a><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div><div class="tab-item-content" id="外链-4"><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% link Solitude 官方文档地址 https://docs.wzsco.top/ %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% link 知乎 有问题，就会有答案 https://www.zhihu.com/ %&#125;</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div></div></div>
+
+<h2 id="折叠块-fold"><a href="#折叠块-fold" class="headerlink" title="折叠块 fold"></a>折叠块 fold</h2><div class="tabs" id="折叠块"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#折叠块-1">标签语法</button></li><li class="tab"><button type="button" data-href="#折叠块-2">配置参数</button></li><li class="tab"><button type="button" data-href="#折叠块-3">演示预览</button></li><li class="tab"><button type="button" data-href="#折叠块-4">演示源码</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="折叠块-1"><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% fold title open %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% endfold %&#125;</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div><div class="tab-item-content" id="折叠块-2"><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>title</td>
+<td>标题（可选）</td>
+</tr>
+<tr>
+<td>oepn</td>
+<td>是否打开（可选）不填默认不打开</td>
+</tr>
+</tbody></table><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div><div class="tab-item-content" id="折叠块-3"><div class="note  primary flat"><p>Demo 1 - title</p>
+</div>
+
+<details ><summary>Demo1</summary><div class="content"></div></details>
+
+<div class="note  primary flat"><p>Demo 2 - title + open</p>
+</div>
+
+<details open><summary>Demo2</summary><div class="content"></div></details><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div><div class="tab-item-content" id="折叠块-4"><div class="note  primary flat"><p>Demo 1 - title</p>
+</div>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% fold Demo1 %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% endfold %&#125;</span><br></pre></td></tr></table></figure>
+
+<div class="note  primary flat"><p>Demo 2 - title + open</p>
+</div>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% fold Demo2 open %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% endfold %&#125;</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div></div></div>
+
+<h2 id="bilibili-视频播放"><a href="#bilibili-视频播放" class="headerlink" title="bilibili 视频播放"></a>bilibili 视频播放</h2><div class="tabs" id="bilibili视频播放"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#bilibili视频播放-1">标签语法</button></li><li class="tab"><button type="button" data-href="#bilibili视频播放-2">配置参数</button></li><li class="tab"><button type="button" data-href="#bilibili视频播放-3">演示预览</button></li><li class="tab"><button type="button" data-href="#bilibili视频播放-4">演示源码</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="bilibili视频播放-1"><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% bilibili [id] [time] %&#125;</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div><div class="tab-item-content" id="bilibili视频播放-2"><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>url</td>
+<td>视频嵌入链接（例如：&#x2F;&#x2F;player.bilibili.com&#x2F;player.html?aid&#x3D;450061422&amp;bvid&#x3D;BV1nj411i7Ja&amp;cid&#x3D;1310680043&amp;p&#x3D;1）</td>
+</tr>
+</tbody></table><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div><div class="tab-item-content" id="bilibili视频播放-3"><iframe class="bvideo" src="//player.bilibili.com/player.html?aid=450061422&bvid=BV1nj411i7Ja&cid=1310680043&p=1"></iframe><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div><div class="tab-item-content" id="bilibili视频播放-4"><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% bilibili //player.bilibili.com/player.html?aid=450061422&amp;bvid=BV1nj411i7Ja&amp;cid=1310680043&amp;p=1 %&#125;</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="scoicon sco-arrow-up-line"></i></button></div></div></div></article><div class="post-copyright"><div class="post-copyright__author_group"><a class="post-copyright__author_img" href="/about/"><img class="post-copyright__author_img_front" data-lazy-src="https://jihulab.com/byzh123/images/-/raw/images/pictures/2024/02/17_13_56_23_202402171356962.bmp"></a><div class="post-copyright__author_name">微柚博客</div><div class="post-copyright__author_desc">你若盛开,清风自来</div></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div id="quit-box" onclick="RemoveRewardMask()"></div><div class="post-reward" onclick="AddRewardMask()"><div class="reward-button" title="赞赏作者"><i class="scoicon sco-hand-heart-fill"></i>打赏作者</div><div class="reward-main"><ul class="reward-all"><span class="reward-title">感谢你赐予我前进的力量</span><ul class="reward-group"><li class="reward-item"><a target="_blank" rel="noopener" href="https://bu.dusays.com/2023/11/07/6549e79364fa3.png"><img class="post-qr-code-img" data-lazy-src="https://bu.dusays.com/2023/11/07/6549e79364fa3.png" alt="微信"></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://bu.dusays.com/2023/11/07/6549e79d02bd6.png" target="_blank"><img class="post-qr-code-img" data-lazy-src="https://bu.dusays.com/2023/11/07/6549e79d02bd6.png" alt="支付宝"></a><div class="post-qr-code-desc">支付宝</div></li></ul><a class="reward-main-btn" target="_blank" rel="noopener" href="https://blog.wzsco.cn/about/"><div class="reward-text">赞赏者名单</div><div class="reward-dec">因为你们的支持让我意识到写文章的价值🙏</div></a></ul></div></div><script>function RemoveRewardMask() {
+    let rewardMainElements = document.querySelectorAll(".reward-main");
+    let quitBoxElement = document.querySelector("#quit-box");
+
+    console.log("RemoveRewardMask")
+
+    rewardMainElements.forEach(element => {
+        element.style.display = "none";
+    });
+
+    if (quitBoxElement) {
+        quitBoxElement.style.display = "none";
+    }
+}
+
+function AddRewardMask() {
+    let rewardMainElements = document.querySelectorAll(".reward-main");
+    let quitBoxElement = document.querySelector("#quit-box");
+
+    console.log("AddRewardMask")
+
+    rewardMainElements.forEach(element => {
+        element.style.display = "flex";
+    });
+
+    if (quitBoxElement) {
+        quitBoxElement.style.display = "flex";
+    }
+}</script></div></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Solitude/"><span class="tags-punctuation"></span>Solitude<span class="tagsPageCount">1</span></a><a class="post-meta__tags" href="/tags/%E7%B2%BE%E9%80%89/"><span class="tags-punctuation"></span>精选<span class="tagsPageCount">1</span></a></div></div></div><nav class="needEndHide pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/posts/a0e4c699.html"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Solitude 安装文档(一) 快速开始</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><div class="author-info__top-group"><div class="author-info__sayhi" id="author-info__sayhi" onclick="sco.changeSayHelloText()">sayhello.morning</div></div></div><div class="avatar-img-group"><img class="avatar-img" alt="头像" data-lazy-src="https://jihulab.com/byzh123/images/-/raw/images/pictures/2024/02/17_13_56_23_202402171356962.bmp"><div class="avatar-sticker"><img class="avatar-sticker-img" data-lazy-src="https://bu.dusays.com/2023/12/30/659011053e246.png" alt="心情贴纸"></div></div><div class="author-info__description_group"><div class="author-info__description">分享自己对编程的<b>热爱</b>，对美好生活的<b>向往</b>，对知识海洋<b>探索历程</b>。</div><div class="author-info__description2">相信你可以在这里找到对你有用的知识和教程。</div></div><div class="author-info__bottom-group"><a class="author-info__bottom-group-left" target="_blank" rel="noopener" href="https://blog.wzsco.cn/"><div class="author-info__name">李广妮</div><div class="author-info__desc">你若盛开,清风自来</div></a><div class="card-info-social-icons is-center"><a class="social-icon" target="_blank" rel="noopener" href="https://github.com/wleelw" title="Github"><i class="scoicon  sco-github-line"></i></a><a class="social-icon" target="_blank" rel="noopener" href="https://space.bilibili.com/1329819902" title="Bilibili"><i class="scoicon  sco-bilibili-line"></i></a></div></div></div></div><div class="card-widget card-platform"><div id="flip-wrapper"><div id="flip-content"><div class="face"></div><div class="back face"></div></div></div></div><div class="card-widget card-docs"><div class="item-headline"><i class="scoicon sco-lightbulb-fill"></i><span>文档目录</span></div><div class="item-content"><ul class="card-category-list"> <li class="card-category-list-item"> <a class="card-category-list-link" href="/posts/a0e4c699.html"> 🚀 快速开始 </a> </li> <li class="card-category-list-item"> <a class="card-category-list-link" href="/posts/2db7d40c.html"> 📑 主题页面 </a> </li> <li class="card-category-list-item"> <a class="card-category-list-link" href="/posts/54a18de0.html"> 📌 基本配置 </a> </li> <li class="card-category-list-item"> <a class="card-category-list-link" href="/posts/29d77ad0.html"> ⚔️ 额外配置 </a> </li> </ul></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="scoicon sco-menu-line"></i><span>文章目录</span></div><div class="toc-content" id="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%A1%E7%89%87-card"><span class="toc-text">卡片 card</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%89%E9%92%AE-btn"><span class="toc-text">按钮 btn</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E5%BC%A0%E5%9B%BE%E7%89%87-image"><span class="toc-text">单张图片 image</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%8C%E5%86%85%E5%9B%BE%E7%89%87-inlineimage"><span class="toc-text">行内图片 inlineimage</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#label-%E6%A0%87%E7%AD%BE"><span class="toc-text">label 标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E9%80%89%E5%88%97%E8%A1%A8-radio"><span class="toc-text">单选列表 radio</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B4%E9%93%BE%E9%9F%B3%E9%A2%91-audio"><span class="toc-text">直链音频 audio</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B4%E9%93%BE%E8%A7%86%E9%A2%91-video"><span class="toc-text">直链视频 video</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AE%B5%E8%90%BD%E6%96%87%E6%9C%AC-p"><span class="toc-text">段落文本 p</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Note-Bootstrap-Callout"><span class="toc-text">Note (Bootstrap Callout)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%A0%8F-tabs"><span class="toc-text">分栏 tabs</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E8%BD%B4-Timelne"><span class="toc-text">时间轴 Timelne</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%96%E9%93%BE-link"><span class="toc-text">外链 link</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%98%E5%8F%A0%E5%9D%97-fold"><span class="toc-text">折叠块 fold</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#bilibili-%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE"><span class="toc-text">bilibili 视频播放</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="scoicon sco-map-line"></i><span>最近发布</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/16107.html" title="Hello World"><img alt="Hello World" data-lazy-src="https://api.qjqq.cn/api/Img"></a><div class="content"><a class="title" href="/posts/16107.html" title="Hello World">Hello World</a></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/29d77ad0.html" title="Solitude 安装文档(四) 额外配置"><img alt="Solitude 安装文档(四) 额外配置" data-lazy-src="https://bu.dusays.com/2024/02/16/65cf1b89c382a.png"></a><div class="content"><a class="title" href="/posts/29d77ad0.html" title="Solitude 安装文档(四) 额外配置">Solitude 安装文档(四) 额外配置</a><a class="article-recent_post_categories" href="/posts/29d77ad0.html">Docs</a></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/54a18de0.html" title="Solitude 安装文档(三) 基本配置"><img alt="Solitude 安装文档(三) 基本配置" data-lazy-src="https://bu.dusays.com/2024/02/16/65cf1a82648b3.png"></a><div class="content"><a class="title" href="/posts/54a18de0.html" title="Solitude 安装文档(三) 基本配置">Solitude 安装文档(三) 基本配置</a><a class="article-recent_post_categories" href="/posts/54a18de0.html">Docs</a></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/2db7d40c.html" title="Solitude 安装文档(二) 页面配置"><img alt="Solitude 安装文档(二) 页面配置" data-lazy-src="https://bu.dusays.com/2024/02/16/65cf1a15b083b.png"></a><div class="content"><a class="title" href="/posts/2db7d40c.html" title="Solitude 安装文档(二) 页面配置">Solitude 安装文档(二) 页面配置</a><a class="article-recent_post_categories" href="/posts/2db7d40c.html">Docs</a></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/a0e4c699.html" title="Solitude 安装文档(一) 快速开始"><img alt="Solitude 安装文档(一) 快速开始" data-lazy-src="https://bu.dusays.com/2024/02/16/65cf175219f61.png"></a><div class="content"><a class="title" href="/posts/a0e4c699.html" title="Solitude 安装文档(一) 快速开始">Solitude 安装文档(一) 快速开始</a><a class="article-recent_post_categories" href="/posts/a0e4c699.html">Docs</a></div></div></div></div></div></div></main><footer id="footer"><div id="sco-footer-bar"><div class="footer-logo"><span class="scoicon">微柚博客</span></div><div class="footer-bar-description">来自微柚博客 - 你若盛开,清风自来的文章</div><a class="footer-bar-link" href="/">了解更多</a></div><div id="footer_deal"><a class="deal_link" target="_blank" rel="noopener" href="https://github.com/wleelw" title="Github"><i class="scoicon  sco-github-line"></i></a><a class="deal_link" href="mailto:wleelw@wzsco.top" title="Mail"><i class="scoicon  sco-mail-line"></i></a><div class="footer_mini_logo" id="footer_mini_logo" title="返回顶部" onclick="sco.toTop()"><img data-lazy-src="https://jihulab.com/byzh123/images/-/raw/images/pictures/2024/02/17_13_56_23_202402171356962.bmp" alt="返回顶部"></div><a class="deal_link" target="_blank" rel="noopener" href="https://space.bilibili.com/1329819902" title="Bilibili"><i class="scoicon  sco-bilibili-line"></i></a><a class="deal_link" target="_blank" rel="noopener" href="https://v.douyin.com/iJsLc8jt/" title="抖音"><i class="scoicon  sco-douyin-fill"></i></a></div><div id="sco-footer"><div class="footer-group"><h3 class="footer-title">导航</h3><div class="footer-links"><a class="footer-item" href="/archives/" title="归档">归档</a><a class="footer-item" href="/categories/" title="分类">分类</a><a class="footer-item" href="/tags/" title="标签">标签</a></div></div><div class="footer-group"><h3 class="footer-title">服务</h3><div class="footer-links"><a class="footer-item" target="_blank" rel="noopener" href="https://v6.51.la/" title="51la统计">51la统计</a></div></div><div class="footer-group"><h3 class="footer-title">支持</h3><div class="footer-links"><a class="footer-item" target="_blank" rel="noopener" href="https://afdian.net/a/wleelw0u0" title="爱发电">爱发电</a></div></div><div class="footer-group"><div class="footer-title-group"><h3 class="footer-title">友链</h3><a class="random-friends-btn" href="javascript:randomLinksList();"><i class="scoicon sco-refresh-line"></i></a></div><div class="footer-links" id="friend-links-in-footer"></div></div></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div class="copyright">© 2023 - 2024 By&nbsp;<a class="footer-bar-link" href="/">李广妮</a></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/wleelw/hexo-theme-solitude" title="主题">主题</a><a class="footer-bar-link" target="_blank" rel="noopener" href="https://blog.wzsco.cn/" title="作者博客">作者博客</a><a class="footer-bar-link cc"><i class="scoicon sco-copyright-line"></i><i class="scoicon sco-creative-commons-by-line"></i><i class="scoicon sco-creative-commons-nc-line"></i><i class="scoicon sco-creative-commons-nd-line"></i></a></div></div></div></footer></div><!-- inject body--><div><script src="https://cdn.staticfile.org/hexo-theme-solitude/1.5.1/js/main.min.js"></script><script src="https://cdn.staticfile.org/hexo-theme-solitude/1.5.1/js/utils.min.js"></script><script src="https://cdn.cbd.int/solitude-source/js/universe.min.js"></script><script>dark()
+</script><script src="https://cdn.staticfile.org/pjax/0.2.8/pjax.min.js"></script><script src="https://cdn.staticfile.org/vanilla-lazyload/17.8.5/lazyload.iife.min.js"></script><script src="https://cdn.staticfile.org/node-snackbar/0.1.16/snackbar.min.js"></script><script src="https://cdn.staticfile.org/fancyapps-ui/5.0.33/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.staticfile.org/lunr.js/2.3.9/lunr.min.js"></script></div><div id="js-pjax"><script async src="https://cdn.staticfile.org/busuanzi/2.3.0/bsz.pure.mini.min.js"></script><script id="config-diff">var PAGE_CONFIG = {
+    is_post: true,
+    is_page: false,
+    is_home: false,
+    page: 'post',
+    toc: true,
+    comment: false,
+}
+</script></div><script>const links = [{"name":"王卓Sco","link":"https://blog.wzsco.top/"},{"name":"亦小封","link":"https://blog.meuicat.cn/"},{"name":"btwoa","link":"https://blog.btwoa.com"},{"name":"张洪Heo","link":"https://blog.zhheo.com/"}]
+function travelling() {
+    const link = links[utils.randomNum(links.length)];
+    utils.snackbarShow('您即将前往 ⌈ ' + link.name + ' ⌋ , 安全性未知', false, 3000);
+    setTimeout(() => {
+        window.open(link.link, "_blank")
+    }, 3000)
+}
+</script><script>function randomLinksList() {
+    const linkcard = document.getElementById('friend-links-in-footer');
+    if (linkcard == null) return;
+
+    let data = '';
+    let linksCopy = [...links];
+    let count = Math.min(3, linksCopy.length);
+
+    for (let i = 0; i < count; i++) {
+        let index = utils.randomNum(linksCopy.length);
+        const {link, name} = linksCopy[index];
+        data += `<a class="footer-item" href="${link}" target="_blank" rel="noopener noreferrer nofollow">${name}</a>`;
+        linksCopy.splice(index, 1);
+    }
+
+    linkcard.innerHTML = data + '<a class="footer-item" href="/links/">更多</a>';
+}</script><!-- newest comment--><!-- pjax--><script>let pjaxSelectors = [
+    'title',
+    '#body-wrap',
+    '#site-config',
+    'meta[name="description"]',
+    '#js-pjax',
+    'meta[property^="og:"]',
+]
+
+const pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+})
+
+document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+})
+
+document.addEventListener('pjax:complete', () => {
+    window.refreshFn()
+})
+
+document.addEventListener('pjax:error', (e) => {
+    if (e.request.status === 404) {
+        pjax.loadUrl('/404.html')
+    }
+})</script><!-- theme--><script>initTheme = () => {
+    let isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const cachedMode = saveToLocal.get('theme');
+    if (cachedMode === undefined) {
+        const nowMode =
+            isDarkMode ? 'dark' : 'light'
+        document.documentElement.setAttribute('data-theme', nowMode);
+    } else {
+        document.documentElement.setAttribute('data-theme', cachedMode);
+    }
+}
+initTheme()</script><!-- search--><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><button class="search-close-button"><i class="scoicon sco-close-fill"></i></button></nav><div class="search-wrap"><div class="search-box"><input class="search-box-input" id="search-input" type="text" autocomplete="off" spellcheck="false" autocorrect="off" autocapitalize="off" placeholder="输入关键词快速查找"></div><div id="search-results"><div id="search-hits"></div></div><div id="search-pagination"></div><div id="search-tips"></div></div></div><div id="search-mask"></div></div><script src="https://cdn.staticfile.org/hexo-theme-solitude/1.5.1/js/search/local.min.js"></script><!-- music--></body></html><script>const posts=["posts/16107.html","posts/29d77ad0.html","posts/54a18de0.html","posts/2db7d40c.html","posts/a0e4c699.html","posts/e19cb4b7.html"];function toRandomPost(){ pjax.loadUrl('/'+posts[Math.floor(Math.random()*posts.length)]); };</script>
